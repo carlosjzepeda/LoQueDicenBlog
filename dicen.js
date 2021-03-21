@@ -6,8 +6,3 @@ window.addEventListener("scroll",function() {
   
 })
 
-function preloadImage(url)
-{
-    var img=new Image();
-    img.src=url;
-}

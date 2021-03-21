@@ -20,10 +20,10 @@
    animation-iteration-count: 1;
    animation-fill-mode: forwards;
    transform: translateZ(0);
-  
+
  }
- 
- 
+
+
 
 
  @keyframes fadeIn {
@@ -33,7 +33,7 @@
      top: 50px;
      filter: blur(1px);
      transform: translateZ(0);
-     
+
    }
 
    100% {
@@ -87,7 +87,7 @@
    align-items: center;
    z-index: 10000;
    background-color: inherit;
-   
+
  }
 
  /*this makes the nav sticky with js when scrolled*/
@@ -169,52 +169,52 @@
  }
 
  .image1 {
-   background: url('Celebs/badbunny.png') no-repeat center center/cover;
+   background: url('Celebs/badbunny.jpg') no-repeat center center/cover;
 
  }
 
  .image2 {
-   background: url('Celebs/kalis.png') no-repeat center center/cover;
+   background: url('Celebs/kalis.jpg') no-repeat center center/cover;
 
  }
 
  .image3 {
-   background: url('Celebs/badbunny.png') no-repeat center center/cover;
+   background: url('Celebs/badbunny.jpg') no-repeat center center/cover;
 
  }
 
  .image4 {
-   background: url('Celebs/maluma.png') no-repeat center center/cover;
+   background: url('Celebs/maluma.jpg') no-repeat center center/cover;
 
  }
 
  .image5 {
-   background: url('Celebs/myke.png') no-repeat center center/cover;
+   background: url('Celebs/myke.jpg') no-repeat center center/cover;
 
  }
 
  .image6 {
-   background: url('Celebs/karol.png') no-repeat center center/cover;
+   background: url('Celebs/karol.jpg') no-repeat center center/cover;
 
  }
 
  .image7 {
-   background: url('Celebs/selena.png') no-repeat center center/cover;
+   background: url('Celebs/selena.jpg') no-repeat center center/cover;
 
  }
 
  .image8 {
-   background: url('Celebs/nelson.png') no-repeat center center/cover;
+   background: url('Celebs/nelson.jpg') no-repeat center center/cover;
 
  }
 
  .image9 {
-   background: url('Celebs/daddyyankee.png') no-repeat center center/cover;
+   background: url('Celebs/daddyyankee.jpg') no-repeat center center/cover;
 
  }
 
  .image10 {
-   background: url('Celebs/daddyyankee.png') no-repeat center center/cover;
+   background: url('Celebs/daddyyankee.jpg') no-repeat center center/cover;
 
  }
 
@@ -273,7 +273,7 @@
  }
 
  /* second page of website */
- .articles {
+ .container {
    padding-top: 2.5%;
    text-align: center;
  }
