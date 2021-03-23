@@ -1,8 +1,7 @@
-/*this makes nav sticky*/
+/*this makes navbar sticky*/
 
-window.addEventListener("scroll",function() {
-  var navbar = document.querySelector("#navbar");
-  navbar.classList.toggle("sticky" , window.scrollY > 0)
-  
+window.addEventListener("scroll", function () {
+  let navbar = document.querySelector("#navbar");
+  navbar.classList.toggle("sticky", window.scrollY > 0)
+
 })
-

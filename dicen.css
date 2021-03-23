@@ -7,6 +7,10 @@
    -ms-overflow-style: none
  }
 
+ body::-webkit-scrollbar {
+   display: none;
+ }
+
  html {
    scroll-behavior: smooth;
  }
@@ -16,46 +20,13 @@
    font-family: bebas-neue-pro, sans-serif;
    font-weight: normal;
    background-color: black;
-   animation: fadeIn .5s ease;
-   animation-iteration-count: 1;
-   animation-fill-mode: forwards;
-   transform: translateZ(0);
 
- }
-
-
-
-
- @keyframes fadeIn {
-   0% {
-     position: relative;
-     opacity: 0;
-     top: 50px;
-     filter: blur(1px);
-     transform: translateZ(0);
-
-   }
-
-   100% {
-     position: relative;
-     opacity: 1;
-     top: 0;
-     filter: blur(0px);
-     transform: translateZ(0);
-   }
  }
 
  h2 {
    font-size: 3em;
-
-
  }
 
- h3 {
-   font-size: 2em;
-
-
- }
 
  a {
    color: inherit;
@@ -65,14 +36,7 @@
    font-weight: bold;
  }
 
- .readmore:hover {
-   opacity: 50%;
-   cursor: pointer;
- }
-
  /*NAV*/
-
-
  .navtext {
    text-decoration: none;
 
@@ -82,37 +46,45 @@
    display: flex;
    font-size: 2em;
    font-weight: bold;
-   padding-top: 2.5%;
+   padding-top: 1%;
    justify-content: space-evenly;
    align-items: center;
-   z-index: 10000;
    background-color: inherit;
-
  }
 
  /*this makes the nav sticky with js when scrolled*/
  .sticky {
    position: sticky;
    top: 0;
-
  }
 
- /*nav animations*/
-
- nav a:hover {
+ /*hover scale animations*/
+ nav a:hover,
+ nav .logo:hover,
+ .maingrid a:hover,
+ .spotlightimg:hover,
+ .albums:hover {
    animation: scale .5s ease;
    cursor: pointer;
    animation-fill-mode: forwards;
  }
 
- nav .logo:hover {
-   animation: scale .5s ease;
-   cursor: pointer;
-   animation-fill-mode: forwards;
+ @keyframes scale {
+   from {
+     transform: scale(1);
+   }
+
+   to {
+     transform: scale(.9);
+     opacity: 50%
+   }
+
  }
+
+
+
 
  /*wrapper for all pages*/
-
  .musicagrid,
  .cardscontainer {
    display: grid;
@@ -131,9 +103,6 @@
  }
 
  /*MAIN PAGE*/
-
-
-
  .landing h2 {
    display: flex;
    justify-content: center;
@@ -153,8 +122,6 @@
    scroll-behavior: auto;
    border-radius: 2%;
  }
-
-
 
  /*PICTURES FOR GRIDS*/
  .itemgrid a {
@@ -226,51 +193,14 @@
    overflow-x: auto;
  }
 
- header h2 {
-   font-size: 2em;
-   display: flex;
-   z-index: 0;
-
- }
-
-
 
  /*video related*/
-
- .videotitle {
-   font-size: 3em;
-   justify-content: center;
- }
 
  .youtubevid {
    border-radius: 2%;
  }
 
 
-
- /*animations for grids on landing page*/
- .maingrid a:hover {
-   animation: scale .5s ease;
-   cursor: pointer;
-   animation-fill-mode: forwards;
-
- }
-
-
-
- @keyframes scale {
-
-   0% {
-     transform: scale(1);
-   }
-
-   100% {
-     transform: scale(.9);
-     opacity: 50%;
-   }
-
-
- }
 
  /* second page of website */
  .container {
@@ -285,8 +215,6 @@
    text-decoration-style: double;
 
  }
-
-
 
  .musicagriditem {
    height: auto;
@@ -319,27 +247,6 @@
    font-size: 2em;
  }
 
-
-
- .spotlightimg:hover {
-   animation: smallscale 1s ease forwards;
-   cursor: pointer;
- }
-
-
- @keyframes smallscale {
-   100% {
-     opacity: 50%;
-     transform: scale(.9);
-   }
-
-   0% {
-     transform: scale(1);
-   }
-
- }
-
-
  /*right side of the page*/
  .musicagriditem2 {
    display: grid;
@@ -365,13 +272,6 @@
    margin: 0;
    padding: 0;
 
-
-
- }
-
- .albums:hover {
-   animation: smallscale .5s ease forwards;
-   cursor: pointer;
  }
 
  .mejor {
@@ -381,10 +281,6 @@
 
 
  /*third page of content*/
-
-
-
-
 
  .cardsgridright,
  .cardsgridleft {
@@ -442,7 +338,6 @@
 
  }
 
-
  .bunnytext,
  .generotext {
    padding: 5%;
@@ -456,26 +351,28 @@
    font-size: 3rem;
  }
 
- .elanoconejo:hover {
+ .elanoconejo:hover,
+ .genero:hover,
+ .articleby:hover,
+ .readmore:hover {
    opacity: 50%;
    cursor: pointer;
  }
 
- .genero:hover {
-   opacity: 50%;
-   cursor: pointer;
- }
-
- .articleby:hover {
-   opacity: 50%;
-   cursor: pointer;
-
- }
-
-
- /*RESPONSIVE FOR DIFFERENT SCREENS*/
+ /*RESPONSIVE FOR MOBILE SCREENS*/
  @media only screen and (max-width: 1000px) {
 
+   /* disables side scrolling */
+   html,
+   body {
+     overflow-x: hidden;
+   }
+
+   body {
+     position: relative
+   }
+
+   /*makes containers into columns*/
    .maingrid,
    nav,
    .musicagrid,
@@ -486,19 +383,31 @@
      width: 100%;
    }
 
+   .cardscontainer {
+     display: grid;
+     grid-template-columns: 1fr; 
+     justify-content: center;
+   }
+
+   .hidemenu {
+     display: none ;
+   } 
 
    .spotlightimg,
    .editpics {
      max-width: 400px;
      width: auto;
-     max-height: 1000px;
+     max-height: 265px;
      height: 50%;
    }
 
    .albumgrid {
      display: grid;
+     grid-template-columns: 1fr;
      width: auto;
-     overflow: scroll;
+     overflow-y: scroll;
+     justify-items: center;
+     height: 500px;
    }
 
    .videogrid {
@@ -507,16 +416,13 @@
      padding: 5% 0;
    }
 
-   .cardscontainer {
-     display: grid;
-     grid-template-columns: subgrid;
-   }
-
    .title,
    .videotitle,
-   .editpics,
-   .bunnyleftgrid {
+   .bunnyleftgrid,
+   .editpics {
+     display: none;
      visibility: collapse;
+
    }
 
    .badbunny,
@@ -525,11 +431,7 @@
      grid-template-columns: 1fr;
      flex-flow: column wrap;
      justify-content: center;
-
-
    }
-
-
 
    .itemgrid {
      display: grid;
@@ -537,12 +439,21 @@
    }
  }
 
- @media only screen and (max-width: 1300px) {
+/* REPONSIVE FOR LAPTOPS/SMALLER THAN 1700PX*/
+ @media only screen and (max-width: 1700px) and (min-width: 1000px){
    .musicagrid {
      display: flex;
      flex-flow: column;
      height: auto;
-     width: 100%;
+     width: auto;
    }
 
+
+   .maingrid {
+    display: grid;
+    height: 600px;
+    grid-template-columns: 2.5fr 1fr;
+    width: auto;
+    grid-gap: 2%;
  }
+}
