@@ -16,7 +16,7 @@
  }
 
  body {
-   color: #f5deb3;
+   color: #ffdc9b;
    font-family: bebas-neue-pro, sans-serif;
    font-weight: normal;
    background-color: black;
@@ -50,10 +50,13 @@
    justify-content: space-evenly;
    align-items: center;
    background-color: inherit;
+   transition: transform .5s linear;
+   z-index: 1;
+
  }
 
  /*this makes the nav sticky with js when scrolled*/
- .sticky {
+ .sticky-nav {
    position: sticky;
    top: 0;
  }
@@ -78,9 +81,24 @@
      transform: scale(.9);
      opacity: 50%
    }
-
  }
 
+ nav a,
+ nav .logo,
+ .maingrid a,
+ .spotlightimg,
+ .albums{
+   animation: reverse-scale .2s ease-out;
+ }
+ @keyframes reverse-scale {
+   from {
+     transform: scale(.95);
+   }
+
+   to {
+     transform: scale(1);
+   }
+ }
 
 
 
@@ -216,12 +234,12 @@
 
  }
 
- .musicagriditem {
+ .musicagriditem,
+ .musicagriditem2 {
    height: auto;
    display: grid;
    justify-content: center;
    text-align: left;
-   align-items: center;
 
  }
 
@@ -229,8 +247,8 @@
 
  .spotlightimg {
    display: flex;
-   width: 800px;
-   height: 500px;
+   width: 824px;
+   height: 462px;
    margin: 0 auto;
    justify-content: center;
  }
@@ -248,21 +266,13 @@
  }
 
  /*right side of the page*/
- .musicagriditem2 {
-   display: grid;
-   justify-content: center;
-   overflow: hidden;
-   text-align: center;
-
- }
 
  .albumgrid {
-   display: grid;
-   width: auto;
-   height: 530px;
-   grid-template-columns: 1fr 1fr;
+   display: flex;
+   width: 824px;
+   height: 462px;
+   margin: 0 auto;
    justify-content: center;
-   overflow-y: scroll;
  }
 
  .albums {
@@ -284,20 +294,16 @@
 
  .cardsgridright,
  .cardsgridleft {
-   display: grid;
-   grid-template-rows: 1fr 1fr;
-   justify-content: center;
+   display: block;
  }
 
- .cardpicleft {
+ .cardpicleft,
+ .cardpicright {
    height: 500px;
    width: auto;
  }
 
- .cardpics {
-   height: 551px;
-   width: auto;
- }
+
 
  /*fourth page of content que dice la calle*/
 
@@ -322,7 +328,7 @@
  /*left side of grid*/
  .editpics,
  .generoleftgrid {
-   height: 1000px;
+   height: 500px;
    width: auto;
    text-align: left;
  }
@@ -334,8 +340,12 @@
    justify-content: flex-start;
    text-align: left;
    justify-content: center;
-   margin: 5%;
 
+ }
+
+ .righteditpic {
+   height: auto;
+   width: 500px;
  }
 
  .bunnytext,
@@ -346,12 +356,12 @@
 
  }
 
- .elanoconejo,
+ .articletitle,
  .genero {
    font-size: 3rem;
  }
 
- .elanoconejo:hover,
+ .articletitle:hover,
  .genero:hover,
  .articleby:hover,
  .readmore:hover {
@@ -376,39 +386,28 @@
    .maingrid,
    nav,
    .musicagrid,
-   .musicagriditem {
+   .musicagriditem,
+   .cardscontainer {
      display: flex;
      flex-flow: column;
      height: auto;
-     width: 100%;
-   }
-
-   .cardscontainer {
-     display: grid;
-     grid-template-columns: 1fr; 
-     justify-content: center;
-   }
-
-   .hidemenu {
-     display: none ;
-   } 
-
-   .spotlightimg,
-   .editpics {
-     max-width: 400px;
      width: auto;
-     max-height: 265px;
-     height: 50%;
    }
 
-   .albumgrid {
-     display: grid;
-     grid-template-columns: 1fr;
-     width: auto;
-     overflow-y: scroll;
-     justify-items: center;
-     height: 500px;
+
+   /*picture sizes*/
+   .spotlightimg {
+     max-width: 300px;
+     height: auto;
    }
+
+   .cardpicleft,
+   .cardpicright {
+     height: 200px;
+   }
+
+
+
 
    .videogrid {
      display: grid;
@@ -425,6 +424,7 @@
 
    }
 
+   /*EDITORIALES PAGE MOBILE*/
    .badbunny,
    .generolatino {
      display: grid;
@@ -439,9 +439,11 @@
    }
  }
 
-/* REPONSIVE FOR LAPTOPS/SMALLER THAN 1700PX*/
- @media only screen and (max-width: 1700px) and (min-width: 1000px){
-   .musicagrid {
+ /* RESPONSIVE FOR LAPTOPS/SMALLER THAN 1700PX*/
+ @media only screen and (max-width: 1700px) and (min-width: 1000px) {
+
+   .musicagrid,
+   .cardscontainer {
      display: flex;
      flex-flow: column;
      height: auto;
@@ -450,10 +452,10 @@
 
 
    .maingrid {
-    display: grid;
-    height: 600px;
-    grid-template-columns: 2.5fr 1fr;
-    width: auto;
-    grid-gap: 2%;
+     display: grid;
+     height: 600px;
+     grid-template-columns: 2.5fr 1fr;
+     width: auto;
+     grid-gap: 2%;
+   }
  }
-}
