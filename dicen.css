@@ -390,6 +390,12 @@
    height: 800px;
  }
 
+.picexample {
+  width: auto;
+  height: 900px;
+}
+
+
  .contactform {
    display: flex;
    justify-content: center;
