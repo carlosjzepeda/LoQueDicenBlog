@@ -309,7 +309,22 @@
  /*fourth page of content que dice la calle*/
 
  .quedicepage {
-   height: 1000px;
+   height: 800px;
+ }
+
+ .quedicegrid {
+   display: grid;
+   grid-template-columns: 1fr 1.5fr;
+   font-size: 2em;
+   margin: 5%;
+   text-align: left;
+   gap: 5%;
+   line-height: 2em;
+ }
+
+ .rightquedice {
+   overflow-y: scroll;
+   height: 600px;
  }
 
  /*editoriales.html styling*/
@@ -408,14 +423,16 @@
    animation: submit .2s forwards ease;
    cursor: pointer;
  }
-@keyframes submit {
-  from{
-    opacity: 1;
-  }
-  to{
-    opacity: .5;
-  }
-}
+
+ @keyframes submit {
+   from {
+     opacity: 1;
+   }
+
+   to {
+     opacity: .5;
+   }
+ }
 
  /*RESPONSIVE FOR MOBILE SCREENS*/
  @media only screen and (max-width: 1000px) {
@@ -435,13 +452,23 @@
    nav,
    .musicagrid,
    .musicagriditem,
-   .cardscontainer {
+   .cardscontainer,
+   .quedicepage {
      display: flex;
      flex-flow: column;
      height: auto;
      width: auto;
    }
 
+   .quedicegrid {
+     display: grid;
+     grid-template-columns: 1fr;
+
+   }
+
+   .rightquedice {
+     display: none;
+   }
 
    /*picture sizes*/
    .spotlightimg {
